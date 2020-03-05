@@ -29,16 +29,15 @@ const typeDefs = gql`
 
   type Mutation {
     brodcast(
-      vehicleId: String!, 
-      latitude: Float!,
-      longitude: Float!,
+      vehicleId: String!
+      latitude: Float!
+      longitude: Float!
     ): BrodcastResponse
   }
 
   type Subscription {
     positionStream: Position!
   }
-
 `;
 
 module.exports = {

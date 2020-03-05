@@ -10,10 +10,7 @@ const resolvers = {
     })
   },
   Mutation: {
-    brodcast: (_, payload, { pubsub, req }) => {
-
-      console.log(`auth=${req.headers.authorization}`)
-
+    brodcast: (_, payload, { pubsub }) => {
       const payloadPosition = {
         id: v4(),
         vehicleId: payload["vehicleId"],
@@ -34,11 +31,8 @@ const resolvers = {
   Subscription: {
     positionStream: {
       subscribe: (_, __, context) => {
-
-        console.log("Subscribing! context=", context)
-
-        return context.pubsub.asyncIterator(BRODCAST_POSITION) 
-        
+        console.log("Added new Subscriber!");
+        return context.pubsub.asyncIterator(BRODCAST_POSITION);
       }
     }
   }
